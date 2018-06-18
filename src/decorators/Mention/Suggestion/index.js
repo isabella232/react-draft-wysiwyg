@@ -255,7 +255,8 @@ function getSuggestionComponent() {
                     { 'rdw-suggestion-option-active': (index === activeOption) },
                   )}
                 >
-                  {suggestion.text}
+                  <span className="rdw-suggestion-option-text">{suggestion.text}</span>
+                  {suggestion.helptext && <span className="rdw-suggestion-option-helptext">{suggestion.helptext}</span>}
                 </span>))}
             </span>}
         </span>

@@ -15,7 +15,7 @@ const Mention = () =>
       separator: ' ',
       trigger: '@',
       suggestions: [
-        { text: 'APPLE', value: 'apple', url: 'apple' },
+        { text: 'APPLE', value: 'apple', url: 'apple', helptext: 'An apple a day keeps the doctor away' },
         { text: 'BANANA', value: 'banana', url: 'banana' },
         { text: 'CHERRY', value: 'cherry', url: 'cherry' },
         { text: 'DURIAN', value: 'durian', url: 'durian' },

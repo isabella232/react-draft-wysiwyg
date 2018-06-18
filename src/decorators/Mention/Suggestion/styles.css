@@ -6,11 +6,18 @@
   display: flex;
   flex-direction: column;
   border: 1px solid #F1F1F1;
-  min-width: 100px;
+  min-width: 363px;
   max-height: 150px;
   overflow: auto;
   background: white;
   z-index: 100;
+}
+.rdw-suggestion-option-text {
+  display: block;
+  font-weight: bold;
+}
+.rdw-suggestion-option-helptext {
+  color: #848588;
 }
 .rdw-suggestion-option {
   padding: 7px 5px;
