@@ -89,6 +89,12 @@ function getSuggestionComponent() {
       children: PropTypes.array,
     };
 
+    constructor(props) {
+      super(props);
+
+      this.filterSuggestions(props);
+    }
+
     state: Object = {
       style: { left: 15 },
       activeOption: -1,
@@ -107,7 +113,8 @@ function getSuggestionComponent() {
       } else {
         left = 15;
       }
-      if (editorRect.bottom < dropdownRect.bottom) {
+
+      if (editorRect.bottom < dropdownRect.bottom && editorRect.top < (dropdownRect.top - dropdownRect.height)) {
         bottom = 0;
       }
       this.setState({ // eslint-disable-line react/no-did-mount-set-state
@@ -116,7 +123,6 @@ function getSuggestionComponent() {
       KeyDownHandler.registerCallBack(this.onEditorKeyDown);
       SuggestionHandler.open();
       config.modalHandler.setSuggestionCallback(this.closeSuggestionDropdown);
-      this.filterSuggestions(this.props);
     }
 
     componentWillReceiveProps(props) {
