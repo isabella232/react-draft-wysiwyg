@@ -3,14 +3,13 @@
 }
 .rdw-suggestion-dropdown {
   position: absolute;
-  display: flex;
-  flex-direction: column;
   border: 1px solid #F1F1F1;
-  min-width: 363px;
-  max-height: 150px;
-  overflow: auto;
   background: white;
   z-index: 100;
+  border-radius: 5px;
+  -webkit-box-shadow: 13px 7px 29px -19px rgba(0,0,0,0.3);
+  -moz-box-shadow: 13px 7px 29px -19px rgba(0,0,0,0.3);
+  box-shadow: 13px 7px 29px -19px rgba(0,0,0,0.3);
 }
 .rdw-suggestion-option-text {
   display: block;
@@ -19,9 +18,39 @@
 .rdw-suggestion-option-helptext {
   color: #848588;
 }
+.rdw-suggestion-dropdown-legend-bold {
+  font-weight: bold;
+}
+.rdw-suggestion-dropdown-legend-wrapper {
+  display: block;
+}
+.rdw-suggestion-dropdown-legend {
+  display: flex;
+  justify-content: space-between;
+  background-color: #faf8f5;
+  color: #8a898e;
+  font-size: 13px;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.rdw-suggestion-dropdown-legend > span > span {
+  display: inline-block;
+  margin-left: 10px;
+}
+.rdw-suggestion-dropdown-content {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 465px;
+  max-height: 150px;
+}
 .rdw-suggestion-option {
   padding: 7px 5px;
   border-bottom: 1px solid #f1f1f1;
+}
+.rdw-suggestion-option:last-child {
+  border-bottom: 0;
 }
 .rdw-suggestion-option-active {
   background-color: #F1F1F1;

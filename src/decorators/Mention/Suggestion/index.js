@@ -241,23 +241,35 @@ function getSuggestionComponent() {
               style={this.state.style}
               ref={this.setDropdownReference}
             >
-              {this.filteredSuggestions.map((suggestion, index) =>
-                (<span
-                  key={index}
-                  spellCheck={false}
-                  onClick={this.addMention}
-                  data-index={index}
-                  onMouseEnter={this.onOptionMouseEnter}
-                  onMouseLeave={this.onOptionMouseLeave}
-                  className={classNames(
-                    'rdw-suggestion-option',
-                    optionClassName,
-                    { 'rdw-suggestion-option-active': (index === activeOption) },
-                  )}
-                >
-                  <span className="rdw-suggestion-option-text">{suggestion.text}</span>
-                  {suggestion.helptext && <span className="rdw-suggestion-option-helptext">{suggestion.helptext}</span>}
-                </span>))}
+              <span className="rdw-suggestion-dropdown-legend-wrapper">
+                <span className="rdw-suggestion-dropdown-legend">
+                  <span>Commands matching</span>
+                  <span>
+                    <span>Use ↑↓ to navigate</span>
+                    <span>⮐ to select</span>
+                    <span><span className="rdw-suggestion-dropdown-legend-bold">esc</span> to dismiss</span>
+                  </span>
+                </span>
+              </span>
+              <span className="rdw-suggestion-dropdown-content">
+                {this.filteredSuggestions.map((suggestion, index) =>
+                  (<span
+                    key={index}
+                    spellCheck={false}
+                    onClick={this.addMention}
+                    data-index={index}
+                    onMouseEnter={this.onOptionMouseEnter}
+                    onMouseLeave={this.onOptionMouseLeave}
+                    className={classNames(
+                      'rdw-suggestion-option',
+                      optionClassName,
+                      { 'rdw-suggestion-option-active': (index === activeOption) },
+                    )}
+                  >
+                    <span className="rdw-suggestion-option-text">{suggestion.text}</span>
+                    {suggestion.helptext && <span className="rdw-suggestion-option-helptext">{suggestion.helptext}</span>}
+                  </span>))}
+              </span>
             </span>}
         </span>
       );
