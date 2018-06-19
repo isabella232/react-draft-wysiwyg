@@ -170,8 +170,13 @@ function getSuggestionComponent() {
 
     onOptionMouseEnter = (event) => {
       const index = event.target.getAttribute('data-index');
+
+      if (index === null) {
+        return;
+      }
+
       this.setState({
-        activeOption: index,
+        activeOption: parseInt(index, 10),
       });
     }
 
