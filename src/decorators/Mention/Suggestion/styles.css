@@ -49,6 +49,9 @@
   padding: 7px 5px;
   border-bottom: 1px solid #f1f1f1;
 }
+.rdw-suggestion-option:focus {
+  outline:none;
+}
 .rdw-suggestion-option:last-child {
   border-bottom: 0;
 }

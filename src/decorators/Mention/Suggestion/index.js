@@ -93,6 +93,7 @@ function getSuggestionComponent() {
       super(props);
 
       this.filterSuggestions(props);
+      this.onEditorKeyDown = this.onEditorKeyDown.bind(this);
     }
 
     state: Object = {
@@ -150,12 +151,14 @@ function getSuggestionComponent() {
         } else {
           newState.activeOption = activeOption + 1;
         }
+        this.suggestion.querySelectorAll('.rdw-suggestion-option')[newState.activeOption].focus();
       } else if (event.key === 'ArrowUp') {
         if (activeOption <= 0) {
           newState.activeOption = this.filteredSuggestions.length - 1;
         } else {
           newState.activeOption = activeOption - 1;
         }
+        this.suggestion.querySelectorAll('.rdw-suggestion-option')[newState.activeOption].focus();
       } else if (event.key === 'Escape') {
         newState.showSuggestions = false;
         SuggestionHandler.close();
@@ -258,6 +261,7 @@ function getSuggestionComponent() {
                     spellCheck={false}
                     onClick={this.addMention}
                     data-index={index}
+                    tabIndex="-1"
                     onMouseEnter={this.onOptionMouseEnter}
                     onMouseLeave={this.onOptionMouseLeave}
                     className={classNames(
