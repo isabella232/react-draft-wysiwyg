@@ -2,7 +2,7 @@
   position: relative;
 }
 .rdw-suggestion-dropdown {
-  position: absolute;
+  position: fixed;
   border: 1px solid #F1F1F1;
   background: white;
   z-index: 100;

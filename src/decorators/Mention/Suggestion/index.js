@@ -108,18 +108,14 @@ function getSuggestionComponent() {
       const dropdownRect = this.dropdown.getBoundingClientRect();
       let left;
       let right;
-      let bottom;
       if (editorRect.width < (suggestionRect.left - editorRect.left) + dropdownRect.width) {
-        right = 15;
+        right = suggestionRect.left;
       } else {
-        left = 15;
+        left = suggestionRect.left;
       }
 
-      if (editorRect.bottom < dropdownRect.bottom && editorRect.top < (dropdownRect.top - dropdownRect.height)) {
-        bottom = 0;
-      }
       this.setState({ // eslint-disable-line react/no-did-mount-set-state
-        style: { left, right, bottom },
+        style: { left, right },
       });
       KeyDownHandler.registerCallBack(this.onEditorKeyDown);
       SuggestionHandler.open();
