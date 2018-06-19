@@ -103,19 +103,10 @@ function getSuggestionComponent() {
     };
 
     componentDidMount() {
-      const editorRect = config.getWrapperRef().getBoundingClientRect();
-      const suggestionRect = this.suggestion.getBoundingClientRect();
-      const dropdownRect = this.dropdown.getBoundingClientRect();
-      let left;
-      let right;
-      if (editorRect.width < (suggestionRect.left - editorRect.left) + dropdownRect.width) {
-        right = suggestionRect.left;
-      } else {
-        left = suggestionRect.left;
-      }
+      const { left } = this.suggestion.getBoundingClientRect();
 
       this.setState({ // eslint-disable-line react/no-did-mount-set-state
-        style: { left, right },
+        style: { left },
       });
       KeyDownHandler.registerCallBack(this.onEditorKeyDown);
       SuggestionHandler.open();
