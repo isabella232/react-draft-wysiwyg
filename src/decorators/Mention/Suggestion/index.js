@@ -198,6 +198,10 @@ function getSuggestionComponent() {
     };
 
     closeSuggestionDropdown: Function = (): void => {
+      if (config.onSuggestionDropdownClose) {
+        config.onSuggestionDropdownClose();
+      }
+
       this.setState({
         showSuggestions: false,
       });

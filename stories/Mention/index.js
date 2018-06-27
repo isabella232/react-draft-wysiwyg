@@ -24,6 +24,8 @@ const Mention = () =>
         { text: 'GRAPEFRUIT', value: 'grapefruit', url: 'grapefruit' },
         { text: 'HONEYDEW', value: 'honeydew', url: 'honeydew' },
       ],
+      onSuggestionDropdownOpen: () => console.warn('OPEN'),
+      onSuggestionDropdownClose: () => console.warn('CLOSE')
     }}
     toolbarClassName="rdw-storybook-toolbar"
     wrapperClassName="rdw-storybook-wrapper"
