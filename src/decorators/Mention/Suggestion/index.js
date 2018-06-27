@@ -115,8 +115,8 @@ function getSuggestionComponent() {
       KeyDownHandler.registerCallBack(this.onEditorKeyDown);
       SuggestionHandler.open();
 
-      if (this.config.onSuggestionDropdownOpen) {
-        this.config.onSuggestionDropdownOpen();
+      if (config.onSuggestionDropdownOpen) {
+        config.onSuggestionDropdownOpen();
       }
       config.modalHandler.setSuggestionCallback(this.closeSuggestionDropdown);
     }
@@ -134,8 +134,8 @@ function getSuggestionComponent() {
       KeyDownHandler.deregisterCallBack(this.onEditorKeyDown);
       SuggestionHandler.close();
 
-      if (this.config.onSuggestionDropdownClose) {
-        this.config.onSuggestionDropdownClose();
+      if (config.onSuggestionDropdownClose) {
+        config.onSuggestionDropdownClose();
       }
       config.modalHandler.removeSuggestionCallback();
     }
@@ -162,8 +162,8 @@ function getSuggestionComponent() {
         newState.showSuggestions = false;
         SuggestionHandler.close();
 
-        if (this.config.onSuggestionDropdownClose) {
-          this.config.onSuggestionDropdownClose();
+        if (config.onSuggestionDropdownClose) {
+          config.onSuggestionDropdownClose();
         }
       } else if (event.key === 'Enter') {
         this.addMention();
