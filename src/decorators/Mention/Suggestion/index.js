@@ -13,6 +13,8 @@ class Suggestion {
       trigger,
       getSuggestions,
       onChange,
+      onSuggestionDropdownOpen,
+      onSuggestionDropdownClose,
       getEditorState,
       getWrapperRef,
       caseSensitive,
@@ -25,6 +27,8 @@ class Suggestion {
       trigger,
       getSuggestions,
       onChange,
+      onSuggestionDropdownOpen,
+      onSuggestionDropdownClose,
       getEditorState,
       getWrapperRef,
       caseSensitive,
@@ -110,6 +114,10 @@ function getSuggestionComponent() {
       });
       KeyDownHandler.registerCallBack(this.onEditorKeyDown);
       SuggestionHandler.open();
+
+      if (this.config.onSuggestionDropdownOpen) {
+        this.config.onSuggestionDropdownOpen();
+      }
       config.modalHandler.setSuggestionCallback(this.closeSuggestionDropdown);
     }
 
@@ -125,6 +133,10 @@ function getSuggestionComponent() {
     componentWillUnmount() {
       KeyDownHandler.deregisterCallBack(this.onEditorKeyDown);
       SuggestionHandler.close();
+
+      if (this.config.onSuggestionDropdownClose) {
+        this.config.onSuggestionDropdownClose();
+      }
       config.modalHandler.removeSuggestionCallback();
     }
 
@@ -149,6 +161,10 @@ function getSuggestionComponent() {
       } else if (event.key === 'Escape') {
         newState.showSuggestions = false;
         SuggestionHandler.close();
+
+        if (this.config.onSuggestionDropdownClose) {
+          this.config.onSuggestionDropdownClose();
+        }
       } else if (event.key === 'Enter') {
         this.addMention();
       }
